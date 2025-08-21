@@ -9,7 +9,6 @@ const { Header, Content, Sider } = Layout;
 type MenuItem = Required<MenuProps>['items'][number];
 export default function AppLayout() {
     const location = useLocation();
-    const [collapsed, setCollapsed] = useState(location.pathname === "/");
     const [noHeader, setNoHeader] = useState(location.pathname === "/");
     useEffect(() => {
         setNoHeader(location.pathname === "/");
@@ -32,7 +31,7 @@ export default function AppLayout() {
     ]
     return (
         <Layout className="h-screen">
-            <Sider theme="dark" collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+            <Sider theme="dark">
                 <div className="flex items-center justify-center p-4">
                     <Avatar size={50} icon={<UserOutlined />} />
                 </div>
